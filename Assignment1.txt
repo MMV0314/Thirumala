@@ -1,0 +1,451 @@
+1)Area and Circumfence of Traingle, Circle, Square, Rectangle
+import java.util.Scanner;
+public class FindAreaUsingSwitchStatement 
+{
+   public static void main(String[] args) 
+   {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("MENU:");
+      System.out.println("1.Area of circle");
+      System.out.println("2.Area of triangle");
+      System.out.println("3.Area of rectangle");
+      System.out.println("Please enter any of the above option: ");
+      int num = sc.nextInt();
+      switch(num)
+      {
+         case 1: System.out.println("Please enter radius of circle: ");
+         double radius = sc.nextFloat();
+         double areaCircle = (22 * radius * radius) / 7;
+         System.out.println("Area of circle is: " + areaCircle);
+         break;
+         case 2: System.out.println("Please enter base and height of triangle: ");
+         double base = sc.nextFloat();
+         double height = sc.nextFloat();
+         double areaTriangle = (base* height) / 2;
+         System.out.println("Area of triangle is: " + areaTriangle);
+         break;
+         case 3: System.out.println("Please enter length and breadth of rectangle: ");
+         int length = sc.nextInt();
+         int breadth = sc.nextInt();
+         int areaRectangle = length * breadth;
+         System.out.println("Area of ractangle is: " + areaRectangle);
+         break;
+         default:System.exit(0);
+      }
+      sc.close();
+   }
+}
+2)java program to find time and distance
+package myassignment1;
+
+import java.util.Scanner;
+
+public class CalculateTimeAndDistance {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("please enter speed:");
+		int speed = sc.nextInt();
+		System.out.println("please enter time:");
+		int distance = sc.nextInt();
+		
+        float time = (float) distance/speed;
+        System.out.println("the time is:"+time);
+	}
+
+}
+3)Input numbers from the user until he enters 0. Find the number of negative inputs, positive odd inputs and positive even inputs.
+
+//Input numbers from the user until he enters 0.
+//Find the number of negative inputs, positive odd inputs and positive even inputs.
+package myassignment1;
+
+import java.util.Scanner;
+
+public class CountOfPositiveNegatives {
+
+	public static void main(String[] args) {
+		int num, countP = 0, countN = 0, countZ = 0, countE = 0, counto = 0;
+		Scanner scan = new Scanner(System.in);
+
+		System.out.print("Enter 10 Numbers: ");
+		for (int i = 0; i < 10; i++) {
+			num = scan.nextInt();
+			if (num < 0 )
+				countN++;
+
+			else if (num > 0)
+				countP++;
+			else if (num % 2 == 1)
+				counto++;
+			else if (num % 2 == 0)
+				countE++;
+			else
+				countZ++;
+		}
+
+		System.out.println("\nTotal Positive Number: " + countP);
+		System.out.println("Total Negative Number: " + countN);
+		System.out.println("Total Zero: " + countZ);
+		System.out.println("\n total positive even numbers:" + countE);
+		System.out.println("\n total negative odd numbers:" + counto);
+
+	}
+}
+4)Input numbers from the user until he enters 0. Find the largest odd number and largest even number from the entered numbers.
+package myassignment1;
+
+import java.util.Scanner;
+
+public class CountOfLargerstAndSmallestNumber {
+
+	public static void main(String[] args) {
+		double large=0,small=0;
+		Scanner sc = new Scanner(System.in);
+		double large1 = Integer.MAX_VALUE;
+	    double small1 = Integer.MIN_VALUE;
+	    for (int i = 0; i < 10; i++) {
+			large= sc.nextInt();
+			small = sc.nextInt();
+		System.out.println("largest number is :"+large1);
+		
+		System.out.println("largest number is :"+small1);
+		
+	}
+
+}
+}
+5)java program to write Simple and compound Interests
+a)Program to find simple interest
+
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter the principal: ");
+    double principal = input.nextDouble();
+
+    System.out.print("Enter the rate: ");
+    double rate = input.nextDouble();
+
+    System.out.print("Enter the time: ");
+    double time = input.nextDouble();
+
+    double interest = (principal * time * rate) / 100;
+
+    System.out.println("Principal: " + principal);
+    System.out.println("Interest Rate: " + rate);
+    System.out.println("Time Duration: " + time);
+    System.out.println("Simple Interest: " + interest);
+
+    input.close();
+  }
+}
+
+b)Program to find the compound interest
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter the principal: ");
+    double principal = input.nextDouble();
+
+    System.out.print("Enter the rate: ");
+    double rate = input.nextDouble();
+
+    System.out.print("Enter the time: ");
+    double time = input.nextDouble();
+
+    System.out.print("Enter number of times interest is compounded: ");
+    int number = input.nextInt();
+
+    double interest = principal * (Math.pow((1 + rate/100), (time * number))) - principal;
+
+    System.out.println("Principal: " + principal);
+    System.out.println("Interest Rate: " + rate);
+    System.out.println("Time Duration: " + time);
+    System.out.println("Number of Time interest Compounded: " + number);
+    System.out.println("Compound Interest: " + interest);
+
+    input.close();
+  }
+
+6)java program to find  the first n prime numbers. n should be taken as input from the user.
+
+import java.util.Scanner;
+
+public class PrimenumbersDemo {
+
+	public static void main(String[] args) {
+	
+		      int n;
+		      int status = 1;
+		      int num = 3;
+		      
+		      Scanner scanner = new Scanner(System.in);
+		      System.out.println("Enter the value of n:");
+		      //The entered value is stored in the var n
+		      n = scanner.nextInt();
+		      if (n >= 1)
+		      {
+		         System.out.println("First "+n+" prime numbers are:");
+		         //2 is a known prime number
+		         System.out.println(2);
+		      }
+
+		      for ( int i = 2 ; i <=n ;  )
+		      {
+		         for ( int j = 2 ; j <= Math.sqrt(num) ; j++ )
+		         {
+		            if ( num%j == 0 )
+		            {
+		               status = 0;
+		               break;
+		            }
+		         }
+		         if ( status != 0 )
+		         {
+		            System.out.println(num);
+		            i++;
+		         }
+		         status = 1;
+		         num++;
+		      }         
+		   }
+		
+
+	}
+
+
+7)java program to check whether a number is palindrome or not
+
+package myassignment1;
+
+import java.util.Scanner;
+
+public class PalindromeDemo {
+
+	
+		public static void main(String args[])
+	    {
+		 Scanner in = new Scanner(System.in);
+	     System.out.print("Input a number: ");
+	     int n = in.nextInt();
+	     int sum = 0, r;
+		 int temp = n;    
+	     while(n>0)
+		   {    
+	        r = n % 10;   
+	        sum = (sum*10)+r;    
+	        n = n/10;    
+	       }    
+	      if(temp==sum)    
+	        System.out.println("It is a Palindrome number.");    
+	      else    
+	        System.out.println("Not a palindrome");
+	   }  
+	 
+	}
+
+8)java program to Input rollno, marks of three subjects. Calculate total, percentage and grade.
+ Ask the user whether he/she wants to continue for more students. The program should terminate only when the user enters 'n'.
+
+package myassignment1;
+
+import java.util.Scanner;
+
+public class StudentDemo {
+
+	public static void main(String[] args) {
+     int rollno;
+     int subject1=0;
+     int subject2=0;
+     int subject3=0;
+     int total =0,percentage=0,grade=0;
+     Scanner sc = new Scanner(System.in);
+     System.out.println("enter marks");
+     total = sc.nextInt();
+     total = subject1+subject2+subject3;
+         System.out.println("to calculate percentage");
+         percentage = sc.nextInt();
+         percentage = (total/3)*100;
+               System.out.println("to calculate grade");
+                 if(percentage>35) {
+                	 System.out.println("pass");
+                 }
+                	 else if(percentage>=35&&percentage<=60) {
+                		 System.out.println("average");
+                		 else
+                		 
+                			 System.out.println("distinction");
+                		 }
+                 }
+         
+
+	}
+
+9)java program to display the armstrong number.
+
+package myassignment1;
+
+public class ArmstrongNumber {
+
+	public static void main(String[] args) {
+
+		int number = 153, originalNumber, remainder, result = 0;
+
+		originalNumber = number;
+
+		while (originalNumber != 0) {
+			remainder = originalNumber % 10;
+			result += Math.pow(remainder, 3);
+			originalNumber /= 10;
+		}
+
+		if (result == number)
+			System.out.println(number + " is an Armstrong number.");
+		else
+			System.out.println(number + " is not an Armstrong number.");
+	}
+}
+10)java program to Input a number and display the multiplication table of the entered number.
+package myassignment1;
+
+public class MultiplicationBetween {
+
+	public static void main(String[] args) {
+		for (int table = 1; table <= 20; table++) {
+			for (int i = 1; i <= 10; i++) {
+
+				System.out.println(table + " * " + (i) + " = " + (table * (i)));
+			}
+			System.out.println("----------");
+
+	}
+
+	}
+}
+11)java program to Input a number and display the multiplication table of the entered number.
+package myassignment1;
+
+import java.util.Scanner;
+
+public class MultiplicationTable {
+	public static void main(String args[])   
+	{  
+	Scanner sc = new Scanner(System.in);  
+	System.out.print("Enter number: ");        
+	int num=sc.nextInt();  
+	  
+	for(int i=1; i <= 10; i++)  
+	{  
+	     
+	System.out.println(num+" * "+i+" = "+num*i);  
+	}  
+
+	}
+}
+
+
+12)Java program to display the armstrong number.
+package myassignment1;
+
+public class ArmstrongNumber {
+
+	public static void main(String[] args) {
+
+		int number = 153, originalNumber, remainder, result = 0;
+
+		originalNumber = number;
+
+		while (originalNumber != 0) {
+			remainder = originalNumber % 10;
+			result += Math.pow(remainder, 3);
+			originalNumber /= 10;
+		}
+
+		if (result == number)
+			System.out.println(number + " is an Armstrong number.");
+		else
+			System.out.println(number + " is not an Armstrong number.");
+	}
+}
+13)java program to Input two numbers and display the multiplication tables of all the numbers between them.
+
+package myassignment1;
+
+public class MultiplicationBetween {
+
+	public static void main(String[] args) {
+		for (int table = 1; table <= 20; table++) {
+			for (int i = 1; i <= 10; i++) {
+
+				System.out.println(table + " * " + (i) + " = " + (table * (i)));
+			}
+			System.out.println("----------");
+
+	}
+
+	}
+}
+14)Java program to Display the first n terms of the fibonacci series.
+package myassignment1;
+
+public class FibonacciSeriesDemo {
+
+	public static void main(String[] args) {
+
+		int n = 120 , firstTerm = 0, secondTerm = 1;
+		System.out.println("Fibonacci Series till " + n + " terms:");
+
+		for (int i = 1; i <= n; ++i) {
+			System.out.print(firstTerm + ", ");
+
+			// compute the next term
+			int nextTerm = firstTerm + secondTerm;
+			firstTerm = secondTerm;
+			secondTerm = nextTerm;
+		}
+	}
+
+}
+15)Java program to display the number pattern
+package myassignment1;
+
+public class PatternDemo {
+	
+	    public static void main(String[] args) {
+	        for (int i = 1; i <= 4; i++)
+	        {
+	            int n = 4;
+	   
+	            for (int j = 1; j<= n - i; j++) { System.out.print(" "); } for (int k = i; k >= 1; k--)
+	            {
+	                System.out.print(k);
+	            }
+	            for (int l = 2; l <= i; l++) { System.out.print(l); } System.out.println(); } for (int i = 3; i >= 1; i--)
+	        {
+	            int n = 3;
+	   
+	            for (int j = 0; j<= n - i; j++) { System.out.print(" "); } for (int k = i; k >= 1; k--)
+	            {
+	                System.out.print(k);
+	            }
+	            for (int l = 2; l <= i; l++)
+	            {
+	                System.out.print(l);
+	            }
+	   
+	            System.out.println();
+	        }
+	       
+	    }
+	}
+
+
+
+
+
+

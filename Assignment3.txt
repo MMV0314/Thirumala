@@ -1,0 +1,315 @@
+1)write a java program that stimulates a traffic light
+import java.util.Scanner;
+public class Traffic {
+    public static void main(String []args)  {
+        String s1 = "red";
+        String s2 = "yellow";
+        String s3 = "geen";
+        
+        System.out.println("Traffic light");
+        
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.println("Enter a colour ");
+    System.out.println(s1+"  "+s2+"  "+s3);
+    String val1 = sc.next();
+    
+    
+    if(val1.contentEquals(s1)) {
+        System.out.println("you are selected red colour");
+        System.out.println("STOP");
+    } else if(val1.contentEquals(s2)) {
+        
+        System.out.println("you are selected yellow color");
+        System.out.println("READY");
+        
+    } else if(val1.contentEquals(s3)) {
+        
+        System.out.println("you are selected green colour");
+        System.out.println("GO");
+    }
+    else {
+        System.out.println("Invalid colour");
+}
+}
+
+
+
+
+
+2)Write a java program to validate the full name of an employee.create and throw a user defined exception if
+first and last name are same.*****
+
+class MyException extends Exception{
+   String str1;
+  
+   MyException(String str2) {
+	str1=str2;
+   }
+   public String toString(){ 
+	return ("MyException Occurred: "+str1) ;
+   }
+}
+
+class Example1{
+   public static void main(String args[]){
+	try{
+		System.out.println("Starting of try block");
+		throw new MyException("This is My error Message");
+	}
+	catch(MyException exp){
+		System.out.println("Catch Block") ;
+		System.out.println(exp) ;
+	}
+   }
+3)Java program to create an exception class named as employee exception
+4)create a method which accepts a hashmap and returns the values of the map in sorted order as a List.
+
+import java.awt.List;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class HashmapSortByValue {
+
+	public static void main(String[] args) {
+
+		Map<String, Integer> hashmap = new Map<String, Integer>();
+		HashmapSortByValue sv = new HashmapSortByValue();
+		sv.createMap();
+		System.out.println("elements is ascending order");
+		sv.HashmapSortByValue(true);
+		System.out.println("elements is in descending order");
+		sv.HashmapSortByValue(false);
+	}
+
+	private void HashmapSortByValue(boolean b) {
+
+	}
+
+	private Map<String, Integer> map;
+
+	void createMap()
+	{
+		map.put("thirumala",40);
+		map.put("hari",20);
+		map.put("nani",490);
+		map.put("baby",670);
+		map.put("naini",70);
+		System.out.println("Before sorting: ");  
+		printMap(map);
+
+	void sortByValue(boolean order) {
+		// convert HashMap into List
+		LinkedList<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(map.entrySet());
+		// sorting the list elements
+		Collections.sort(list, new Comparator<Entry<String, Integer>>() {
+			public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+				if (order) {
+					// compare two object and return an integer
+					return o1.getValue().compareTo(o2.getValue());
+				} else {
+					return o2.getValue().compareTo(o1.getValue());
+				}
+			}
+		});
+		// prints the sorted HashMap
+		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+		for (Entry<String, Integer> entry : list) {
+			sortedMap.put(entry.getKey(), entry.getValue());
+		}
+		printMap(sortedMap);
+	}
+
+	// method for printing the elements
+	public void printMap(Map<String, Integer> map) {
+		System.out.println("Company\t Price ");
+		for (Entry<String, Integer> entry : map.entrySet()) {
+			System.out.println(entry.getKey() + "\t" + entry.getValue());
+		}
+		System.out.println("\n");
+	}
+}
+}
+
+}
+
+}
+5)Create a method which accepts a character array and count the number of times each character is present in the array.
+Add how many times each character is present to a hashmap with the character as key and the repititions count as value.
+
+public class CountOccuranceOfChar 
+{  
+public static void main(String args[])   
+{  
+String str = "google";  
+
+HashMap <Character, Integer> charCount = new HashMap<>();  
+
+for (int i = str.length() - 1; i >= 0; i--)   
+{  
+if(charCount.containsKey(str.charAt(i)))   
+{  
+int count = charCount.get(str.charAt(i));  
+charCount.put(str.charAt(i), ++count);  
+}
+else   
+{  
+charCount.put(str.charAt(i),1);  
+}  
+}  
+System.out.println(charCount);  
+}  
+
+LAMBDA EXPRESSIONS
+6)write a lambda expression which accepts x and y numbers and return xy
+package fourthNov;
+
+public class ExForLambda {
+	public static void main(String[] args) {
+		addable ad1 = (x,y)->(x+y);
+		System.out.println(ad1.add(20, 60));
+	
+		addable ad2 =(int x,int y)->{
+		return(x*y);
+		};
+		System.out.println(ad2.add(9045, 9087));
+	}
+}
+7)write a method that uses a lambda expression to format a given string 
+package fourthNov;
+
+import java.util.stream.Collectors;
+
+public class FormatString {
+
+	public static void main(String[] args) {
+		formatInterface fs = (s)->
+		 s.chars()
+		.mapToObj(c->(char) c +"       ")
+		.collect(Collectors.joining())
+		.trim();
+		 System.out.println("TT");
+    }
+}
+8)write a method that uses lambda expression to accept accept username and password and return true or false.
+package fourthNov;
+
+import java.util.Optional;
+import java.util.Scanner;
+
+public class UserPasswordVlidation {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("please enter valid user name");
+		String uname = sc.next();
+		System.out.println("please enter password");
+		String pwd = sc.next();
+		uservalidation1 UserPasswordValidation=(uname,pwd)-> 
+		{boolean userFlag=Optional
+		.ofNullable(username)
+		.filter(t -> t.equals("thiru")).
+		isPresent(); 
+		boolean passwordFlag=Optional
+				.ofNullable(password)
+				.filter(j -> j.equals("12345"))
+				.isPresent(); if(userFlag && passwordFlag)
+				{return "Login Success";} 
+				else 
+				{ return "Login Failed";}};
+              System.out.println(uservalidation1.isValidUser(uname, pwd));
+    }
+
+9)write a class with main method to demonstrate instance creation using method reference
+package fourthNov;
+
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class MethodReference {
+
+	public static void main(String[] args) {
+		
+		    {
+		        Scanner sc=new Scanner(System.in);
+		        System.out.println("Please enter number");
+		        long n=sc.nextLong();
+		        Function<Long,Long> fact = Factorial::factorial;  
+		        long result = fact.apply(n);
+		        System.out.println("Factorial of " +n+ " is: "+result);  
+		    }
+
+
+
+		}
+	}
+10)write a method to calculate factorial of a number.test this method using method reference feature.
+
+public long factorialUsingForLoop(int n) {
+    long fact = 1;
+    for (int i = 2; i <= n; i++) {
+        fact = fact * i;
+    }
+    return fact;
+}
+11)java program to merge two files
+
+public class MergeFiles
+{
+   public static void main(String[] args)
+   {
+      String fileOne, fileTwo, fileThree, line, content="";
+      Scanner scan = new Scanner(System.in);
+      
+      System.out.print("Enter the Name of First File: ");
+      fileOne = scan.nextLine();
+      System.out.print("Enter the Name of Second File: ");
+      fileTwo = scan.nextLine();
+      System.out.print("Enter the Name of Third File: ");
+      fileThree = scan.nextLine();
+      try
+      {
+         FileReader frOne = new FileReader(fileOne);
+         BufferedReader brOne = new BufferedReader(frOne);
+         FileReader frTwo = new FileReader(fileTwo);
+         BufferedReader brTwo = new BufferedReader(frTwo);
+         
+         for(line=brOne.readLine(); line!=null; line=brOne.readLine())
+            content = content + line + "\n";
+         brOne.close();
+         
+         for(line=brTwo.readLine(); line!=null; line=brTwo.readLine())
+            content = content + line + "\n";
+         brTwo.close();
+         
+         try
+         {
+            FileWriter fw = new FileWriter(fileThree, true);
+            fw.write(content);
+            fw.close();
+            System.out.println("\nSuccessfully merged the content of two files into the third file");
+         }
+         catch(IOException ioe)
+         {
+            System.out.println("\nSomething went wrong!");
+            System.out.println("Exception: " +ioe);
+         }
+      }
+      catch(IOException ioe)
+      {
+         System.out.println("\nSomething went wrong!");
+         System.out.print("Exception: " +ioe);
+      }	
+}
+}
+
+
+
+
+
+
+
